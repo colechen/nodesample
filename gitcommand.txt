@@ -1,0 +1,20 @@
+#if both local and remote repository are already existing
+#alias name will be use when push the local change to remote
+git remote add <alias name> <remote repository url>
+ex. git remote add nodesample https://github.com/colechengit/nodesample.git
+
+#after adding remote repository, check out the list
+git remote -v
+
+git add .
+
+git commit -m "Add existing file"
+
+#if the remote repository already contains some file, we need to pull
+#before we can push the local files
+git pull <alias name> <branch name on remote repository>
+ex. git pull nodesample master
+
+
+git push <alias name> <branch name on remote repository>
+ex. git push nodesample master
