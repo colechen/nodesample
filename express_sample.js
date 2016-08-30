@@ -18,6 +18,8 @@ app.all('/secret', function (req, res, next) {
     next(); // pass control to the next handler
 });
 
+
+
 //Single Static File
 //If you have a specific file, use the res.sendFile() function.
 //If you are serving many assets from a directory, use the express.static() middleware function.
@@ -52,7 +54,7 @@ app.get('/plantae/:genus.:species', function(req, res){
 
 
 
-
+//Multiple Callback function
 //More than one callback function
 app.get('/example/b', function (req, res, next) {
     console.log('the response will be sent by the next function ...');
@@ -60,7 +62,6 @@ app.get('/example/b', function (req, res, next) {
 }, function (req, res) {
     res.send('Hello from B!');
 });
-
 //A combination of independent functions and arrays of functions can handle a route
 var cb0 = function (req, res, next) {
     console.log('CB0');
@@ -77,6 +78,8 @@ app.get('/example/d', [cb0, cb1], function (req, res, next) {
     res.send('Hello from D!');
 });
 
+
+
 //Chained route handlers
 app.route('/book')
     .get(function(req, res) {
@@ -89,12 +92,16 @@ app.route('/book')
         res.send('Update the book');
     });
 
+
+
+//Loads Router Module
 //The following example creates a router as a module, loads a middleware function in it,
 //defines some routes, and mounts the router module on a path in the main app.
 //Example: The app will now be able to handle requests to /birds and /birds/about,
 //as well as call the timeLog middleware function that is specific to the route.
 var birds = require('./birds');
 app.use('/birds', birds);
+
 
 
 //Handle 404 Response
@@ -107,6 +114,8 @@ app.use(function(req, res, next){
     res.status(404).send('Sorry, page not found');
 });
 
+
+
 //Error Handler
 //You define error-handling middleware in the same way as other middleware, except with four arguments instead of three;
 //specifically with the signature (err, req, res, next):
@@ -114,6 +123,8 @@ app.use(function(err, req, res, next) {
   console.error(err.stack);
   res.status(500).send('Something broke!');
 });
+
+
 
 app.listen(3000, function(){
     console.log('Example app listening on port 3000!');
