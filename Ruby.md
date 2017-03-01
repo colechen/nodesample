@@ -23,12 +23,12 @@ cat 'eval "$(rbenv init -)"' >> ~/.bash_profile
 ### Install MySQL
 '' brew install mysql
 '' mysql --version
-MySQL is installed without a password.  To secure it, run:
+### MySQL is installed without a password.  To secure it, run:
 '' mysql_secure_installation
-To start MySQL at login, run:
+### To start MySQL at login, run:
 '' brew services start mysql
-To start MySQL manually each time, run:
+### To start MySQL manually each time, run:
 '' mysql.server start
-To connect to MySQL, run:
+### To connect to MySQL, run:
 '' mysql -uroot
-For GUI, install [MySQL Workbench]. 
+### For GUI, install [MySQL Workbench]. 
