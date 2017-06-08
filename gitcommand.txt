@@ -18,3 +18,24 @@ ex. git pull nodesample master
 
 git push <alias name> <branch name on remote repository>
 ex. git push nodesample master
+
+
+#Undo a commit and redo
+
+git commit -m "Something terribly misguided"
+git reset HEAD~                                
+<< edit files as necessary >>                     
+git add .                                           
+git commit -c ORIG_HEAD   
+
+
+#discard commit, reset file to previous commit. Warning: will remove change
+git reset --hard HEAD~1
+
+#undo the commit but keep your changes
+git reset HEAD~1
+git reset --soft HEAD~1     #undo your commit but leave your files and your index (git add .)
+
+#recover from destroy a commit using --hard
+git reflog            #you'll see a list of (partial) commit shas that you've moved around in. Find the commit you destroyed
+git checkout -b someNewBranchName shaYouDestroyed
