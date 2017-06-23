@@ -49,3 +49,16 @@ git merge upstream/master
 
 #git pull will do two things: it does a git fetch and then a git merge.
 #So, fetch and merge above can be replaced with git pull upstream <branch>
+
+
+#Undo git pull
+git merge --abort    #A more modern way to undo a merge is:
+git reset --merge      #And the slightly older way:
+git reset --hard    #The old-school way described in previous answers (warning: will discard all your local changes):
+
+#But actually, it is worth noticing that git merge --abort is only equivalent to git reset --merge given that MERGE_HEAD is present. This can be read in the git help for merge command.
+
+git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
+
+#After a failed merge, when there is no MERGE_HEAD, the failed merge can be undone with git reset --merge but not necessarily with git merge --abort, so they are not only old and new syntax for the same thing. This is why i find git reset --merge to be much more useful in everyday work.
+
