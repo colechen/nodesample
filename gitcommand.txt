@@ -39,3 +39,13 @@ git reset --soft HEAD~1     #undo your commit but leave your files and your inde
 #recover from destroy a commit using --hard
 git reflog            #you'll see a list of (partial) commit shas that you've moved around in. Find the commit you destroyed
 git checkout -b someNewBranchName shaYouDestroyed
+
+#Syncing a fork (https://help.github.com/articles/syncing-a-fork/)
+git remote add upstream https://xxxx.git
+git remote -v
+git fetch upstream
+git checkout master
+git merge upstream/master
+
+#git pull will do two things: it does a git fetch and then a git merge.
+#So, fetch and merge above can be replaced with git pull upstream <branch>
