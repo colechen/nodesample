@@ -62,3 +62,14 @@ git merge --abort is equivalent to git reset --merge when MERGE_HEAD is present.
 
 #After a failed merge, when there is no MERGE_HEAD, the failed merge can be undone with git reset --merge but not necessarily with git merge --abort, so they are not only old and new syntax for the same thing. This is why i find git reset --merge to be much more useful in everyday work.
 
+git log
+git log -p -2
+git log --stat
+git log --pretty=oneline
+git commit --amed
+git reset HEAD <file>
+git status
+git checkout -- <file>
+git show
+git show HEAD
+git show HEAD~1
